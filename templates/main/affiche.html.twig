@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Auteur</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for dat in data %}
+      <tr>
+        <th scope="row">{{ dat.id }}</th>
+        <td>{{ dat.title }}</td>
+        <td>{{ dat.content }}</td>
+        <td>{{ dat.author }}</td>
+        <td > <class="form-group">
+            <a href="{{ path ( 'update', {'id': dat.id})}}" class="btn btn-info mt-2">Modifier</a>
+        </td>
+        <td class="form-group">
+            <a href=" {{ path ('delete', {'id': dat.id})}}" class="btn btn-info mt-2 ">Supprimer</a>
+        </td>
+      </tr>
+      {%  endfor %}
+    </tbody>
+  </table>
+</div>
+  
+{% endblock %}
