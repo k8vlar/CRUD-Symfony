@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CreatPage{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h3 class="mt-5 mb-5">Modifier le Formulaire</h3>
+        <div class="col-md-6 offset-md-3">
+        {{form_start(form)}}
+            {#{{form(form)}} peut etre supprimé car on utilise form_start et form_end pour tout afficher #}
+            <div class="form-group text-white">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title, { 'attr': {'class':'form-control'}}) }}
+            </div>
+            <div class="form-group text-white">
+            {{ form_label(form.content)}}
+            {{ form_widget(form.content, { 'attr': {'class':'form-control'}}) }}
+            </div>
+            <div class="form-group text-white">
+            {{ form_label(form.author)}}
+            {{ form_widget(form.author, { 'attr': {'class':'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info mt-2 text-white">Update</button>
+            </div>
+        {{form_end(form)}}
+         </div>
+    </div>
+</div>
+{% endblock %}
